@@ -1,13 +1,5 @@
-interface SpecialOffer {
-    quantity: number;
-    offerPrice: number; 
-}
-  
-interface PricingDetails {
-    unitPrice: number;
-    specialOffer?: SpecialOffer; 
-}
-  
+import { PricingDetails } from "./types"
+
   export const calculateTotal = (basket: string[], pricingDetails: Record<string, PricingDetails>): number => {
     let total = 0;
     let itemCounts: Record<string, number> = {};
@@ -18,10 +10,6 @@ interface PricingDetails {
 
     for (let item in itemCounts) {
       const itemPricing = pricingDetails[item];
-  
-      if (!itemPricing) {
-        continue; 
-      }
   
       const { unitPrice, specialOffer } = itemPricing;
       const count = itemCounts[item];
