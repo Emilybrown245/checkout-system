@@ -1,50 +1,83 @@
-# React + TypeScript + Vite
+# Checkout System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple checkout system built with React and TypeScript. It allows users to add items to a basket, view the total price with any applicable special offers, and clear the basket.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features:
 
-## Expanding the ESLint configuration
+- Add items to the basket.
+- View the running total, including special offers.
+- Clear the basket at any time.
+- Calculations account for unit prices and special offer pricing.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+## Installation & Setup:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1. **Clone the repository:**
+    
+    git clone https://github.com/Emilybrown245/checkout-system.git
+    
+2. **Navigate into the project fold**
+    
+    cd checkout-system
+    
+3. **Install dependencies:**
+    
+    This project uses `npm` as a package manager.
+    
+    npm install
+    
+4. ## Required Node.js Version:
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+    To run this project, you need Node.js **v14.x** or higher. You can check your Node.js version by running:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+    node -v
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+If you need to install or update Node.js, you can download the latest version from the [official Node.js website](https://nodejs.org/).
+
+5. **Run the development server:**
+
+    npm run dev
+
+This will start the development server, where you can view the application
+
+
+## Usage:
+
+1. **Add Items to the Basket:**
+
+    - Click on the item buttons (A, B, C, D) to add items to the basket.
+
+2. **View Total:**
+
+    - The total price will be displayed, including any applicable special offers.
+
+3. **Clear Basket:**
+
+    - Click the "Clear Basket" button to reset the basket and total.
+
+
+## Example Pricing Rules:
+
+- **Item A**:
+    - Unit Price: £50
+    - Special Offer: Buy 3 for £130
+- **Item B**:
+    - Unit Price: £30
+    - Special Offer: Buy 2 for £45
+- **Item C**:
+    - Unit Price: £20
+- **Item D**:
+    - Unit Price: £15
+
+
+## Technologies Used:
+
+- **React**: JavaScript library for building user interfaces.
+
+- **TypeScript**: Superset of JavaScript for adding static types.
+
+- **CSS**: For basic styling of components.
+
+
+
