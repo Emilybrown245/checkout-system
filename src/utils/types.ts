@@ -16,3 +16,7 @@ export interface BasketProps {
     pricingRules: Record<string, PricingDetails >;
     addItem: (item: string) => void;
   }
+
+  export interface CheckoutProps {
+    pricingRules: Record<string, { unitPrice: number; specialOffer?: { quantity: number; offerPrice: number } }>;
+  }
