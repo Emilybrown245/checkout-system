@@ -35,7 +35,13 @@ This is a simple checkout system built with React and TypeScript. It allows user
 
 If you need to install or update Node.js, you can download the latest version from the [official Node.js website](https://nodejs.org/).
 
-5. **Run the development server:**
+5. **To run the tests, use the following command:**
+    
+    npm run test
+  
+    This will run the Jest test suite and display the results in the terminal.
+
+6. **Run the development server:**
 
     npm run dev
 
