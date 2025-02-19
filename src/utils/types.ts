@@ -11,3 +11,8 @@ export interface PricingDetails {
 export interface BasketProps {
     basket: string[];
   }
+
+  export interface ItemButtonsProps {
+    pricingRules: Record<string, PricingDetails >;
+    addItem: (item: string) => void;
+  }
