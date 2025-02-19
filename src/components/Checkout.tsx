@@ -12,7 +12,7 @@ const Checkout: React.FC<CheckoutProps> = ({ pricingRules }) => {
     setBasket(newBasket); 
   };
 
-  const totalPrice = calculateTotal(basket, pricingRules);
+  const totalPrice: number = calculateTotal(basket, pricingRules).total;
 
   const clearBasket = (): void => {
     setBasket([]); 
