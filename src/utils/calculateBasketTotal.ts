@@ -6,33 +6,24 @@ import { PricingDetails, CalculationResult } from "./types"
     let offersApplied: string[] = [];
   
     basket.forEach((item) => {
+      if (!pricingDetails[item]) return; 
+
       itemCounts[item] = (itemCounts[item] || 0) + 1;
-    });
+      const { unitPrice, specialOffer } = pricingDetails[item];
 
-    for (let item in itemCounts) {
-      const itemPricing = pricingDetails[item];
-  
-      const { unitPrice, specialOffer } = itemPricing;
-      const count = itemCounts[item];
-  
-      if (specialOffer) {
-        const specialBundles = Math.floor(count / specialOffer.quantity);
+      if (specialOffer && itemCounts[item] % specialOffer.quantity === 0) {
 
-        const remainder = count % specialOffer.quantity;
+        total -= (specialOffer.quantity - 1) * unitPrice; 
 
-        const specialBundleCost = specialBundles * specialOffer.offerPrice;
+        total += specialOffer.offerPrice;
 
-        const remainderCost = remainder * unitPrice;
-
-        total += specialBundleCost + remainderCost;
-
-        if (specialBundles > 0) {
-          offersApplied.push( `SpecialOffer: ${specialOffer.quantity} of ${item} for £${(specialOffer.offerPrice / 100).toFixed(2)}`);
-        }
+        offersApplied.push(
+          `SpecialOffer: ${specialOffer.quantity} of ${item} for £${(specialOffer.offerPrice / 100).toFixed(2)}`
+        );
       } else {
-        total += count * unitPrice;
+        total += unitPrice;
       }
-    }
+    })
   
     return {
       total,
