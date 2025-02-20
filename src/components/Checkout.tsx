@@ -21,7 +21,9 @@ const Checkout: React.FC<CheckoutProps> = ({ pricingData }) => {
 
     setBasket(newBasket);
     setTotal(total);
-    setOffersApplied(offersApplied);
+    if (offersApplied.length > 0) {
+      setOffersApplied([offersApplied[offersApplied.length - 1]]);
+    }
   };
 
   const clearBasket = (): void => {
@@ -41,7 +43,10 @@ const Checkout: React.FC<CheckoutProps> = ({ pricingData }) => {
 
       setTotal(total);
 
-      setOffersApplied(offersApplied);
+      if (offersApplied.length > 0) {
+        setOffersApplied([offersApplied[offersApplied.length - 1]]);
+      }
+
       setHistory(history.slice(0, -1));
     }
   };
@@ -56,11 +61,7 @@ const Checkout: React.FC<CheckoutProps> = ({ pricingData }) => {
       {offersApplied.length > 0 && (
         <div>
           <h4>Offer Applied:</h4>
-          <ul>
-            {offersApplied.map((offer, index) => (
-              <li key={index}>{offer}</li>
-            ))}
-          </ul>
+          <p>{offersApplied[0]}</p> 
         </div>
       )}
       <button onClick={undoLastAction} disabled={history.length === 0}>
