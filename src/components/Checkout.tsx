@@ -33,8 +33,8 @@ const Checkout: React.FC<CheckoutProps> = ({ pricingRules }) => {
       <h3>Total: £{(total / 100).toFixed(2)}</h3>
       {offersApplied.length > 0 && (
         <div>
-          <h4>Offer Applied:</h4>
-          <ul>
+          <h4>{offersApplied.length === 1 ? 'Offer Applied:' : 'Offers Applied:'}</h4>
+          <ul className="offers-list">
             {offersApplied.map((offer, index) => (
               <li key={index}>{offer}</li>
             ))}
