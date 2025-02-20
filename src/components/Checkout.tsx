@@ -1,19 +1,24 @@
 import React, { useState } from "react";
-import { CheckoutProps } from "../utils/types";
+import { CheckoutProps, HistoryState } from "../utils/types";
 import ItemButtons from "../components/ItemButtons";
 import Basket from "../components/Basket";
 import { calculateTotal } from "../utils/calculateTotal";
+
 
 const Checkout: React.FC<CheckoutProps> = ({ pricingRules }) => {
   const [basket, setBasket] = useState<string[]>([]);
   const [total, setTotal] = useState<number>(0);
   const [offersApplied, setOffersApplied] = useState<string[]>([]);
+  const [history, setHistory] = useState<HistoryState[]>([]); 
 
   const addItem = (item: string): void => {
-    const newBasket = [...basket, item]; 
-    setBasket(newBasket);
 
+    const newBasket = [...basket, item];
     const { total, offersApplied } = calculateTotal(newBasket, pricingRules);
+
+    setHistory([...history, { basket, total, offersApplied }]);
+
+    setBasket(newBasket);
     setTotal(total);
     setOffersApplied(offersApplied);
   };
@@ -24,9 +29,25 @@ const Checkout: React.FC<CheckoutProps> = ({ pricingRules }) => {
     setOffersApplied([]);
   };
 
+  const undoLastAction = (): void => {
+    if (history.length > 0) {
+
+      const lastState = history[history.length - 1];
+      
+      setBasket(lastState.basket);
+
+      const { total, offersApplied } = calculateTotal(lastState.basket, pricingRules);
+
+      setTotal(total);
+
+      setOffersApplied(offersApplied);
+      setHistory(history.slice(0, -1));
+    }
+  };
+
   return (
-    <div>
-      <h2 >Checkout System</h2>
+    <div className="checkout-container">
+      <h2>Checkout System</h2>
 
       <ItemButtons pricingRules={pricingRules} addItem={addItem} />
       <Basket basket={basket} />
@@ -41,13 +62,14 @@ const Checkout: React.FC<CheckoutProps> = ({ pricingRules }) => {
           </ul>
         </div>
       )}
-      <button 
-        onClick={clearBasket}
-      >
-        Clear Basket
+      <button onClick={clearBasket}>Clear Basket</button>
+      <button onClick={undoLastAction} disabled={history.length === 0}>
+        Undo
       </button>
     </div>
   );
 };
 
 export default Checkout;
+
+
