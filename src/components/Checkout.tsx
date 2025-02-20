@@ -63,10 +63,10 @@ const Checkout: React.FC<CheckoutProps> = ({ pricingRules }) => {
           </ul>
         </div>
       )}
-      <button onClick={clearBasket}>Clear Basket</button>
       <button onClick={undoLastAction} disabled={history.length === 0}>
         Undo
       </button>
+      <button onClick={clearBasket}>Clear Basket</button>
     </div>
   );
 };
