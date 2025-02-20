@@ -60,8 +60,10 @@ const Checkout: React.FC<CheckoutProps> = ({ pricingData }) => {
       <h3>Total: £{(total / 100).toFixed(2)}</h3>
       {offersApplied.length > 0 && (
         <div>
+
           <h4>Offer Applied:</h4>
           <p>{offersApplied[0]}</p> 
+
         </div>
       )}
       <button onClick={undoLastAction} disabled={history.length === 0}>
