@@ -18,7 +18,7 @@ import { PricingDetails, CalculationResult } from "./types"
         total += specialOffer.offerPrice;
 
         offersApplied.push(
-          `SpecialOffer: ${specialOffer.quantity} of ${item} for £${(specialOffer.offerPrice / 100).toFixed(2)}`
+          `Special offer: ${specialOffer.quantity} of ${item} for £${(specialOffer.offerPrice / 100).toFixed(2)}`
         );
       } else {
         total += unitPrice;
