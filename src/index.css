@@ -11,13 +11,10 @@
 }
 
 body {
-  background-image: url('public/images/background-image.jpg');
+  background-image: url('/src/assets/background-image.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-}
-
-body {
   margin: 0;
   display: flex;
   place-items: center;
@@ -26,7 +23,7 @@ body {
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 2.5rem;
   line-height: 1.1;
   font-family: "Kanit", serif;
 }
@@ -44,23 +41,31 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+@media (max-width: 768px) {
+   header h1 {
+    font-size: 2.5rem;
+    padding: 0;
+    margin-bottom: 10%; 
   }
 }
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.8rem;
+    padding: 0;
+    margin-bottom: 10%; 
+  }
+}
+
+
+

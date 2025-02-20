@@ -27,13 +27,15 @@ This is a simple checkout system built with React and TypeScript. It allows user
     
     npm install
     
-4. ## Required Node.js Version:
+4. **Required Node.js Version:**
 
     To run this project, you need Node.js **v14.x** or higher. You can check your Node.js version by running:
 
     node -v
 
 If you need to install or update Node.js, you can download the latest version from the [official Node.js website](https://nodejs.org/).
+
+This project uses Jest to run tests.
 
 5. **To run the tests, use the following command:**
     
@@ -67,14 +69,14 @@ This will start the development server, where you can view the application
 
 - **Item A**:
     - Unit Price: £50
-    - Special Offer: Buy 3 for £130
+    - Special Offer: Buy 3 for £1.30
 - **Item B**:
     - Unit Price: £30
-    - Special Offer: Buy 2 for £45
+    - Special Offer: Buy 2 for £0.45
 - **Item C**:
-    - Unit Price: £20
+    - Unit Price: £0.20
 - **Item D**:
-    - Unit Price: £15
+    - Unit Price: £0.15
 
 
 ## Technologies Used:
