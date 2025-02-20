@@ -1,6 +1,6 @@
 import { PricingDetails, CalculationResult } from "./types"
 
-  export const calculateTotal = (basket: string[], pricingDetails: Record<string, PricingDetails>): CalculationResult => {
+  export const calculateBasketTotal = (basket: string[], pricingDetails: Record<string, PricingDetails>): CalculationResult => {
     let total = 0;
     let itemCounts: Record<string, number> = {};
     let offersApplied: string[] = [];

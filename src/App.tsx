@@ -1,11 +1,11 @@
 import './App.css'
 import Checkout from './components/Checkout'
-import { pricingRules } from './utils/pricingRules';  
+import { pricingData } from './utils/pricingData';  
 
 const App: React.FC = () => {
   return (
     <>
-    <Checkout pricingRules={pricingRules} /> 
+    <Checkout pricingData={pricingData} /> 
   </>
   )
 }

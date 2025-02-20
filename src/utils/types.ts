@@ -18,7 +18,7 @@ export interface BasketProps {
   }
 
   export interface CheckoutProps {
-    pricingRules: Record<string, PricingDetails>;
+    pricingData: Record<string, PricingDetails>;
   }
 
 
