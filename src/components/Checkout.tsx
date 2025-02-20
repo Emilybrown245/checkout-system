@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { CheckoutProps, HistoryState } from "../utils/types";
-import ItemButtons from "../components/ItemButtons";
-import Basket from "../components/Basket";
+import ItemButtons from "./ItemButtons";
+import Basket from "./Basket";
+import Header from "./Header";
 import { calculateTotal } from "../utils/calculateTotal";
 
 
@@ -47,9 +48,7 @@ const Checkout: React.FC<CheckoutProps> = ({ pricingRules }) => {
 
   return (
     <div className="checkout-container">
-
-      <h2 >Checkout System</h2>
-
+<Header />
 
       <ItemButtons pricingRules={pricingRules} addItem={addItem} />
       <Basket basket={basket} />
