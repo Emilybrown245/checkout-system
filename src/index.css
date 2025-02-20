@@ -11,7 +11,7 @@
 }
 
 body {
-  background-image: url('public/images/background-image.jpg');
+  background-image: url('/src/assets/background-image.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
