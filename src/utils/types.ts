@@ -18,5 +18,17 @@ export interface BasketProps {
   }
 
   export interface CheckoutProps {
-    pricingRules: Record<string, { unitPrice: number; specialOffer?: { quantity: number; offerPrice: number } }>;
+    pricingRules: Record<string, PricingDetails>;
+  }
+
+
+export interface CalculationResult {
+    total: number;
+    offersApplied: string[];
+  }
+
+  export interface HistoryState {
+    basket: string[];
+    total: number;
+    offersApplied: string[];
   }

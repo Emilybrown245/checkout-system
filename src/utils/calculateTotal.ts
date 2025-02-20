@@ -1,8 +1,9 @@
-import { PricingDetails } from "./types"
+import { PricingDetails, CalculationResult } from "./types"
 
-  export const calculateTotal = (basket: string[], pricingDetails: Record<string, PricingDetails>): number => {
+  export const calculateTotal = (basket: string[], pricingDetails: Record<string, PricingDetails>): CalculationResult => {
     let total = 0;
     let itemCounts: Record<string, number> = {};
+    let offersApplied: string[] = [];
   
     basket.forEach((item) => {
       itemCounts[item] = (itemCounts[item] || 0) + 1;
@@ -24,11 +25,18 @@ import { PricingDetails } from "./types"
         const remainderCost = remainder * unitPrice;
 
         total += specialBundleCost + remainderCost;
+
+        if (specialBundles > 0) {
+          offersApplied.push( `SpecialOffer: ${specialOffer.quantity} of ${item} for £${(specialOffer.offerPrice / 100).toFixed(2)}`);
+        }
       } else {
         total += count * unitPrice;
       }
     }
   
-    return total;
+    return {
+      total,
+    offersApplied
+  }
   };
   

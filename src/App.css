@@ -4,3 +4,48 @@
   padding: 2rem;
   text-align: center;
 }
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.checkout-container{
+  background-color: rgb(4, 4, 4);
+  opacity: 80%;
+  padding: 40px;
+  border-radius: 10px;
+}
+
+#basket-icon {
+  font-size: 1rem;
+  margin-top: -0.1rem;    
+  color: #f3f1f1;           
+}
+
+.basket-header{
+  display: flex;
+  align-items: center; 
+  gap: 8px; 
+}
+
+.basket-container{
+  display: flex;
+  flex-direction: column; 
+  align-items: center;    
+  text-align: center;    
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+
