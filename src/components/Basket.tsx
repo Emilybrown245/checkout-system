@@ -11,7 +11,7 @@ const Basket: React.FC<BasketProps> = ({ basket }) => {
  <FontAwesomeIcon icon={faBasketShopping} id="basket-icon"/> 
       <h3>Basket:</h3>
       </div>
-      <p>{basket.join(", ") || "Empty"}</p>
+      <p className="basket-items">{basket.join(", ") || "Empty"}</p>
     </div>
   );
 };

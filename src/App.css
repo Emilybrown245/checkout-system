@@ -21,7 +21,11 @@
 .basket-header{
   display: flex;
   align-items: center; 
-  gap: 8px; 
+  gap: 5px; 
+}
+
+.basket-items{
+  margin-top: -5px;
 }
 
 .basket-container{
@@ -30,15 +34,23 @@
   align-items: center;    
   text-align: center;    
   max-width: 80%;
-  margin: 0 auto;
+  border-radius: 10px;
+  background-color: blue;
+  opacity: 80%;
+  padding: 20px;
+  margin: 20px;
 }
 
-.offers-list{
-  list-style-type: none; 
-  padding: 0; 
-  margin: 0; 
-  margin-bottom: 5%;
-  text-align: center; 
+#offer-title{
+  margin-top: 30px;
 }
+
+#special-offer-notification{
+  margin-top: -15px;
+  margin-bottom: 40px;
+}
+
+
+
 
 

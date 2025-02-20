@@ -45,6 +45,8 @@ const Checkout: React.FC<CheckoutProps> = ({ pricingData }) => {
 
       if (offersApplied.length > 0) {
         setOffersApplied([offersApplied[offersApplied.length - 1]]);
+      } else {
+        setOffersApplied([]);
       }
 
       setHistory(history.slice(0, -1));
@@ -61,8 +63,8 @@ const Checkout: React.FC<CheckoutProps> = ({ pricingData }) => {
       {offersApplied.length > 0 && (
         <div>
 
-          <h4>Offer Applied:</h4>
-          <p>{offersApplied[0]}</p> 
+          <h4 id="offer-title">Offer Applied:</h4>
+          <p id="special-offer-notification">{offersApplied[0]}</p> 
 
         </div>
       )}

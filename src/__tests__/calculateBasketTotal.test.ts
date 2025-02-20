@@ -1,7 +1,7 @@
 import { calculateBasketTotal } from '../utils/calculateBasketTotal'
 import { PricingDetails } from "../utils/types"
 
-describe('calculateTotal', () => {
+describe('calculateBasketTotal', () => {
   const pricingDetails: Record<string, PricingDetails> = {
     A: { unitPrice: 50, specialOffer: { quantity: 3, offerPrice: 130 } },
     B: { unitPrice: 30, specialOffer: { quantity: 2, offerPrice: 45 } },
@@ -43,7 +43,7 @@ describe('calculateTotal', () => {
     
         expect(total).toBe(130 + 45 + 20);
         
-        expect(offersApplied).toContain("SpecialOffer: 3 of A for £1.30");
-        expect(offersApplied).toContain("SpecialOffer: 2 of B for £0.45");
+        expect(offersApplied).toContain("Special offer: 3 of A for £1.30");
+        expect(offersApplied).toContain("Special offer: 2 of B for £0.45");
       });
     });
