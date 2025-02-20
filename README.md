@@ -68,10 +68,10 @@ This will start the development server, where you can view the application
 ## Example Pricing Rules:
 
 - **Item A**:
-    - Unit Price: £50
+    - Unit Price: £0.50
     - Special Offer: Buy 3 for £1.30
 - **Item B**:
-    - Unit Price: £30
+    - Unit Price: £0.30
     - Special Offer: Buy 2 for £0.45
 - **Item C**:
     - Unit Price: £0.20
