@@ -3,10 +3,10 @@ import { CheckoutProps, HistoryState } from "../utils/types";
 import ItemButtons from "./ItemButtons";
 import Basket from "./Basket";
 import Header from "./Header";
-import { calculateTotal } from "../utils/calculateTotal";
+import { calculateBasketTotal } from "../utils/calculateBasketTotal";
 
 
-const Checkout: React.FC<CheckoutProps> = ({ pricingRules }) => {
+const Checkout: React.FC<CheckoutProps> = ({ pricingData }) => {
   const [basket, setBasket] = useState<string[]>([]);
   const [total, setTotal] = useState<number>(0);
   const [offersApplied, setOffersApplied] = useState<string[]>([]);
@@ -15,7 +15,7 @@ const Checkout: React.FC<CheckoutProps> = ({ pricingRules }) => {
   const addItem = (item: string): void => {
 
     const newBasket = [...basket, item];
-    const { total, offersApplied } = calculateTotal(newBasket, pricingRules);
+    const { total, offersApplied } = calculateBasketTotal(newBasket, pricingData);
 
     setHistory([...history, { basket, total, offersApplied }]);
 
@@ -37,7 +37,7 @@ const Checkout: React.FC<CheckoutProps> = ({ pricingRules }) => {
       
       setBasket(lastState.basket);
 
-      const { total, offersApplied } = calculateTotal(lastState.basket, pricingRules);
+      const { total, offersApplied } = calculateBasketTotal(lastState.basket, pricingData);
 
       setTotal(total);
 
@@ -50,7 +50,7 @@ const Checkout: React.FC<CheckoutProps> = ({ pricingRules }) => {
     <div className="checkout-container">
 <Header />
 
-      <ItemButtons pricingRules={pricingRules} addItem={addItem} />
+      <ItemButtons pricingRules={pricingData} addItem={addItem} />
       <Basket basket={basket} />
       <h3>Total: £{(total / 100).toFixed(2)}</h3>
       {offersApplied.length > 0 && (
