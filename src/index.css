@@ -15,9 +15,6 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-}
-
-body {
   margin: 0;
   display: flex;
   place-items: center;
