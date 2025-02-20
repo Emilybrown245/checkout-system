@@ -26,3 +26,9 @@ export interface CalculationResult {
     total: number;
     offersApplied: string[];
   }
+
+  export interface HistoryState {
+    basket: string[];
+    total: number;
+    offersApplied: string[];
+  }
