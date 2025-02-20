@@ -17,7 +17,7 @@ This is a simple checkout system built with React and TypeScript. It allows user
     
     git clone https://github.com/Emilybrown245/checkout-system.git
     
-2. **Navigate into the project fold**
+2. **Navigate into the project folder**
     
     cd checkout-system
     
