@@ -25,7 +25,7 @@ const Checkout: React.FC<CheckoutProps> = ({ pricingRules }) => {
   };
 
   return (
-    <div>
+    <div className="checkout-container">
       <h2 >Checkout System</h2>
 
       <ItemButtons pricingRules={pricingRules} addItem={addItem} />
