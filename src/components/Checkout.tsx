@@ -13,6 +13,10 @@ const Checkout: React.FC<CheckoutProps> = ({ pricingData }) => {
   const [history, setHistory] = useState<HistoryState[]>([]); 
 
   const addItem = (item: string): void => {
+    if (!pricingData[item]) {
+      console.error(`Item "${item}" is not found in pricing data.`);
+      return; 
+    }
 
     const newBasket = [...basket, item];
     const { total, offersApplied } = calculateBasketTotal(newBasket, pricingData);
@@ -27,12 +31,18 @@ const Checkout: React.FC<CheckoutProps> = ({ pricingData }) => {
   };
 
   const clearBasket = (): void => {
+    if (basket.length === 0) {
+      console.warn("Basket is already empty.");
+      return;
+    }
     setBasket([]);
     setTotal(0);
     setOffersApplied([]);
+    
   };
 
   const undoLastAction = (): void => {
+    
     if (history.length > 0) {
 
       const lastState = history[history.length - 1];
